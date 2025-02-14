@@ -67,7 +67,7 @@ const TicketCard = () => {
               <img
                 src={userUrl}
                 alt=""
-                className="rounded-lg object-cover h-full"
+                className="rounded-lg object-cover w-full h-full"
               />
             </div>
 
