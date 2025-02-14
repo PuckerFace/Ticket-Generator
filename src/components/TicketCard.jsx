@@ -20,7 +20,7 @@ const TicketCard = () => {
   };
   return (
     <section className="flex flex-col justify-center w-[350px] sm:w-[375px]  md:w-[600px] p-12 gap-8 rounded-[40px] border-2 border-[#0E464F] bg-[#041E23] font-[JejuMyeongjo] font-normal text-white ">
-      <div className="flex  justify-between items-start  md:items-center gap-7 md:flex-row flex-col ">
+      <div className="flex  justify-between items-center   gap-5  ">
         <h1 className="text-white text-2xl md:text-[32px] font-normal ">
           Ready
         </h1>
