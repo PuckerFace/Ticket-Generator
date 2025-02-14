@@ -119,8 +119,8 @@ const TicketForm = () => {
         <span className="bg-[#0E464F] w-1/2 h-1.5 rounded-r-2xl "></span>
       </div>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-        <div className="w-[556px] h-[328px] px-6 pt-6 pb-12 bg-[#042127] rounded-3xl border border-[#07363e] flex-col justify-start items-start gap-8 inline-flex">
-          <div className="text-center text-color-grey-98 text-base font-normal font-['Roboto'] leading-normal">
+        <div className=" w-full h-full md:w-[556px] md:h-[328px] px-6 pt-6 pb-12 bg-[#042127] rounded-3xl border border-[#07363e] flex-col justify-start items-start gap-8 inline-flex">
+          <div className="text-center text-color-grey-98 text-base font-normal font-['Roboto'] leading-normal mb-2">
             Upload Profile Photo
           </div>
 
