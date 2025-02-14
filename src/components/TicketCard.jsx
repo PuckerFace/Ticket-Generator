@@ -1,8 +1,8 @@
 //import { useLocation } from 'react-router-dom';
 import bg from '../assets/images/bg.png';
-import vector from '../assets/images/vector.png';
-import vector2 from '../assets/images/vector2.png';
-import vector3 from '../assets/images/vector3.png';
+import Vector from '../assets/images/Vector.png';
+import Vector2 from '../assets/images/Vector2.png';
+import Vector3 from '../assets/images/Vector3.png';
 import { useNavigate } from 'react-router-dom';
 
 const TicketCard = () => {
@@ -119,28 +119,28 @@ const TicketCard = () => {
             </div>
           </div>
           <div className="mt-7 flex gap-1 items-start">
-            <img src={vector2} alt="" className="h-[70px]" />
-            <img src={vector3} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector2} alt="" />
-            <img src={vector2} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector2} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector2} alt="" className="h-[70px]" />
-            <img src={vector2} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector2} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector2} alt="" />
-            <img src={vector3} alt="" />
-            <img src={vector} alt="" />
-            <img src={vector3} alt="" />
-            <img src={vector2} alt="" className="h-[70px]" />
-            <img src={vector3} alt="" />
+            <img src={Vector2} alt="" className="h-[70px]" />
+            <img src={Vector3} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector2} alt="" />
+            <img src={Vector2} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector2} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector2} alt="" className="h-[70px]" />
+            <img src={Vector2} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector2} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector2} alt="" />
+            <img src={Vector3} alt="" />
+            <img src={Vector} alt="" />
+            <img src={Vector3} alt="" />
+            <img src={Vector2} alt="" className="h-[70px]" />
+            <img src={Vector3} alt="" />
           </div>
         </div>
         {/* <img src={bg} alt="" /> */}

@@ -72,19 +72,27 @@ const TicketForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const formErrors = validateForm();
-    if (Object.keys(formErrors).length === 0) {
-      const userData = { ...selectedData, ...formData };
-      localStorage.setItem('userData', JSON.stringify(userData));
-      localStorage.setItem('userUrl', JSON.stringify(url));
+    if (e.code === 'Enter' || e.type === 'submit') {
+      e.preventDefault();
+      const formErrors = validateForm();
+      if (Object.keys(formErrors).length === 0) {
+        const userData = { ...selectedData, ...formData };
+        localStorage.setItem('userData', JSON.stringify(userData));
+        localStorage.setItem('userUrl', JSON.stringify(url));
 
-      navigate('/ticket');
-    } else {
-      setErrors(formErrors);
+        navigate('/ticket');
+      } else {
+        setErrors(formErrors);
+      }
     }
   };
+  useEffect(() => {
+    document.addEventListener('keydown', handleSubmit);
 
+    return () => {
+      document.removeEventListener('keydown', handleSubmit);
+    };
+  });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({

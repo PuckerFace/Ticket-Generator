@@ -12,14 +12,23 @@ const TicketSelection = () => {
   ];
 
   const handleNext = (e) => {
-    e.preventDefault();
-    const selectedData = { ticketType, ticketCount };
-    localStorage.setItem('selectedData', JSON.stringify(selectedData));
-    navigate('/form');
-    console.log('Saving selectedData to local storage:', selectedData);
-    console.log(ticketCount);
-    console.log(ticketType);
+    if (e.code === 'Enter' || e.type === 'submit') {
+      e.preventDefault();
+      const selectedData = { ticketType, ticketCount };
+      localStorage.setItem('selectedData', JSON.stringify(selectedData));
+      navigate('/form');
+      console.log('Saving selectedData to local storage:', selectedData);
+      console.log(ticketCount);
+      console.log(ticketType);
+    }
   };
+  useEffect(() => {
+    document.addEventListener('keydown', handleNext);
+
+    return () => {
+      document.removeEventListener('keydown', handleNext);
+    };
+  });
 
   const handleCancel = () => {
     setTicketCount(1);
@@ -127,6 +136,7 @@ const TicketSelection = () => {
           <button
             className="h-12 px-6 py-3 rounded-lg border border-[#23a0b5] justify-center items-center gap-2 inline-flex overflow-hidden w-full order-2 md:order-1"
             onClick={handleCancel}
+            type="button"
           >
             <p className="text-[#23a0b5] text-base font-normal font-['JejuMyeongjo'] leading-normal">
               Cancel
