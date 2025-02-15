@@ -2,8 +2,14 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const TicketSelection = () => {
-  const [ticketCount, setTicketCount] = useState(1);
-  const [ticketType, setTicketType] = useState('free');
+  const [ticketCount, setTicketCount] = useState(() => {
+    const savedData = localStorage.getItem('ticketData');
+    return savedData ? JSON.parse(savedData).ticketType : 1;
+  });
+  const [ticketType, setTicketType] = useState(() => {
+    const savedData = localStorage.getItem('ticketData');
+    return savedData ? JSON.parse(savedData).ticketType : 'free';
+  });
   const navigate = useNavigate();
   const access = [
     { type: 'free', display: 'free', text: 'Regular Access', num: ' 20/52' },
@@ -22,9 +28,18 @@ const TicketSelection = () => {
       console.log(ticketType);
     }
   };
+
+  useEffect(() => {
+    const savedData = localStorage.getItem('selectedData');
+
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+      console.log('Retrieved selectedData from local storage:', parsedData);
+    }
+  }, []);
+
   useEffect(() => {
     document.addEventListener('keydown', handleNext);
-
     return () => {
       document.removeEventListener('keydown', handleNext);
     };
@@ -34,12 +49,24 @@ const TicketSelection = () => {
     setTicketCount(1);
     setTicketType('free');
   };
-  useEffect(() => {
-    localStorage.setItem(
-      'ticketSelection',
-      JSON.stringify({ ticketType, ticketCount })
-    );
-  }, [ticketCount, ticketType]);
+  // useEffect(() => {
+  //   localStorage.setItem(
+  //     'ticketSelection',
+  //     JSON.stringify({ ticketType, ticketCount })
+  //   );
+  // }, [ticketCount, ticketType]);
+  //  useEffect(() => {
+  //    const savedData = localStorage.getItem('formData');
+  //    if (savedData) {
+  //      setFormData(JSON.parse(savedData));
+  //    }
+  //  }, []);
+  const handleTicketTypeChange = (e) => {
+    setTicketType(e.target.value);
+  };
+  const handleTicketCountChange = (e) => {
+    setTicketCount(Number(e.target.value));
+  };
   return (
     <section className="flex flex-col justify-center w-[350px] sm:w-[375px]  md:w-[700px] p-12 gap-8 rounded-[40px] border-2 border-[#0E464F] bg-[#041E23] font-[JejuMyeongjo] font-normal text-white ">
       <div className="flex  justify-between items-start  md:items-center md:gap-7 md:flex-row flex-col gap-2 ">
@@ -95,6 +122,7 @@ const TicketSelection = () => {
                   ticketType === info.type ? 'bg-[#12464E]' : 'bg-transparent'
                 }`}
                 onClick={() => setTicketType(info.type)}
+                onChange={handleTicketTypeChange}
               >
                 <div className="text-white text-2xl font-semibold font-['Roboto'] leading-relaxed  ">
                   {info.display}
@@ -122,7 +150,7 @@ const TicketSelection = () => {
             id=""
             className="grow shrink basis-0 bg-[#042127] text-white text-base font-normal font-['Roboto'] leading-normal"
             value={ticketCount}
-            onChange={(e) => setTicketCount(e.target.value)}
+            onChange={handleTicketCountChange}
           >
             <option value="1">1</option>
             <option value="2">2</option>
